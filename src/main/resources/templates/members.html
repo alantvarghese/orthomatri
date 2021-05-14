@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Orthodox Match Maker</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div th:if="${not #lists.isEmpty(members)}">
+        <h2>Member List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Member Id</th>
+                <th>Description</th>
+                <th>Age</th>
+                <th>View</th>
+                <th>Edit</th>
+            </tr>
+            <tr th:each="member : ${members}">
+                <td th:text="${member.id}"><a href="/member/${member.id}">Id</a></td>
+                <td th:text="${member.memberId}">Member Id</td>
+                <td th:text="${member.description}">descirption</td>
+                <td th:text="${member.age}">Age</td>
+                <td><a th:href="${ '/member/' + member.id}">View</a></td>
+                <td><a th:href="${'/member/edit/' + member.id}">Edit</a></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>
