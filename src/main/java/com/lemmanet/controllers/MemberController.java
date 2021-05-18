@@ -72,14 +72,14 @@ public class MemberController {
         return "empty";
     }
     
-    @RequestMapping(value = "member", method = RequestMethod.POST, params={"addRow"})
-    public String addRow(Member member){
+    @RequestMapping(value = "member", method = RequestMethod.POST, params={"addRowReference"})
+    public String addRowReference(Member member){
     	member.getMemberReference().add(new MemberReference());
     	return "memberform";
     }
-    @RequestMapping(value = "member", method = RequestMethod.POST, params={"removeRow"})
-    public String removeRow(Member member, final BindingResult bindingResult, final HttpServletRequest req){
-    	final Integer rowId = Integer.valueOf(req.getParameter("removeRow"));
+    @RequestMapping(value = "member", method = RequestMethod.POST, params={"removeRowReference"})
+    public String removeRowReference(Member member, final BindingResult bindingResult, final HttpServletRequest req){
+    	final Integer rowId = Integer.valueOf(req.getParameter("removeRowReference"));
     	member.getMemberReference().remove(rowId.intValue());
     	return "memberform";
     }
