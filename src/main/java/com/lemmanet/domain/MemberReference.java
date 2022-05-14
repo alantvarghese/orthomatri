@@ -8,11 +8,6 @@ public class MemberReference {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idreference;
-
-//    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.MERGE)
-//    @JoinColumn(name = "idreference", nullable = false, insertable = false, updatable = false)
-//    @OnDelete(action = OnDeleteAction.CASCADE)
-//    private Member member;
     
     @ManyToOne
     @JoinColumn(name="member_id")

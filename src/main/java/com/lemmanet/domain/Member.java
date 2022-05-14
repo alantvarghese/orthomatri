@@ -15,6 +15,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
 @Entity
 @Table(name = "member", schema = "malankara")
 public class Member {
@@ -55,11 +61,29 @@ public class Member {
     @Column(name = "faceBookLink")
     private URL faceBookLink;
     
-    @OneToMany(targetEntity=MemberReference.class, mappedBy="member", fetch=FetchType.EAGER)
+    @OneToMany(targetEntity=MemberReference.class, mappedBy="member")
     @ElementCollection(targetClass=MemberReference.class)
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<MemberReference> memberReference;
     
     
+    @OneToMany(targetEntity=MemberEducation.class, mappedBy="member")
+    @ElementCollection(targetClass=MemberEducation.class)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private List<MemberEducation> memberEducation;
+    
+    public enum Provider {
+        LOCAL, GOOGLE
+    }
+	@Enumerated(EnumType.STRING)
+	private Provider provider;
+	public Provider getProvider() {
+	return provider;
+	}
+	
+	public void setProvider(Provider provider) {
+	this.provider = provider;
+	}
 
     public String getDescription() {
         return description;
@@ -281,5 +305,19 @@ public class Member {
 	 */
 	public void setMemberReference(List<MemberReference> memberReference) {
 		this.memberReference = memberReference;
+	}
+
+	/**
+	 * @return the memberEducation
+	 */
+	public List<MemberEducation> getMemberEducation() {
+		return memberEducation;
+	}
+
+	/**
+	 * @param memberEducation the memberEducation to set
+	 */
+	public void setMemberEducation(List<MemberEducation> memberEducation) {
+		this.memberEducation = memberEducation;
 	}
 }

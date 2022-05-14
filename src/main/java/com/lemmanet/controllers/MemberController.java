@@ -1,5 +1,6 @@
 package com.lemmanet.controllers;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.lemmanet.domain.Member;
+import com.lemmanet.domain.MemberEducation;
 import com.lemmanet.domain.MemberReference;
 import com.lemmanet.services.MemberService;
 
@@ -74,6 +76,9 @@ public class MemberController {
     
     @RequestMapping(value = "member", method = RequestMethod.POST, params={"addRowReference"})
     public String addRowReference(Member member){
+    	if(member.getMemberReference()==null) {
+    		member.setMemberReference(new ArrayList<MemberReference>());
+    	}
     	member.getMemberReference().add(new MemberReference());
     	return "memberform";
     }
@@ -83,4 +88,22 @@ public class MemberController {
     	member.getMemberReference().remove(rowId.intValue());
     	return "memberform";
     }
+
+
+    @RequestMapping(value = "member", method = RequestMethod.POST, params={"addRowEducation"})
+    public String addRowEducation(Member member){
+    	if(member.getMemberEducation()==null) {
+    		member.setMemberEducation(new ArrayList<MemberEducation>());
+    	}
+    	member.getMemberEducation().add(new MemberEducation());
+    	return "memberform";
+    }
+    @RequestMapping(value = "member", method = RequestMethod.POST, params={"removeRowEducation"})
+    public String removeRowEducation(Member member, final BindingResult bindingResult, final HttpServletRequest req){
+    	final Integer rowId = Integer.valueOf(req.getParameter("removeRowEducation"));
+    	member.getMemberEducation().remove(rowId.intValue());
+    	return "memberform";
+    }
+
+
 }

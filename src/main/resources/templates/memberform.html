@@ -2,163 +2,228 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>Orthodox Matchmaker</title>
+<title>Orthodox Matchmaker</title>
 
-    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>    
+<!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+	integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"
+	integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g=="
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+	integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+	crossorigin="anonymous"></script>
 
 
 
 </head>
 <body>
-<div class="container">
-    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
-    <!--  <form class="form-horizontal" th:object="${member}" th:action="@{/member}" method="post">-->
+	<div class="container">
+		<!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+		<!--  <form class="form-horizontal" th:object="${member}" th:action="@{/member}" method="post">-->
 
-    <h2>Candidate Details</h2>
-    <div>
-        <form action="#" class="form-horizontal" th:object="${member}" th:action="@{/member}" method="post">
-        	        <fieldset>
-            <input type="hidden" th:field="*{id}"/>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Candidate Id:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{memberId}"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Age:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{age}"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Photo:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{imageUrl}"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">First Name:</label>
-                <div class="col-sm-10">
-                    <input type="text" th:required="required" class="form-control" th:field="*{firstName}"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Last Name:</label>
-                <div class="col-sm-10">
-                    <input type="text" th:required="required" class="form-control" th:field="*{lastName}"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Email:</label>
-                <div class="col-sm-10">
-                    <input type="text" th:required="required" class="form-control" th:field="*{email}"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Cell Phone:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{cellPhone}"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Height:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{height}"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Education:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{education}"/>
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Profession:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{profession}"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Religion:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{religion}"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Address:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{address}"/>
-                </div>
-            </div>
-             <div class="form-group">
-                <label class="col-sm-2 control-label">Description:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{description}"/>
-                </div>
-            </div>
+		<h2>Candidate Details</h2>
+		<div>
+			<form action="#" class="form-horizontal" th:object="${member}"
+				th:action="@{/member}" method="post">
+				<fieldset>
+					<input type="hidden" th:field="*{id}" />
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Candidate Id:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" th:field="*{memberId}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Age:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" th:field="*{age}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Photo:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" th:field="*{imageUrl}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">First Name:</label>
+						<div class="col-sm-10">
+							<input type="text" th:required="required" class="form-control"
+								th:field="*{firstName}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Last Name:</label>
+						<div class="col-sm-10">
+							<input type="text" th:required="required" class="form-control"
+								th:field="*{lastName}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Email:</label>
+						<div class="col-sm-10">
+							<input type="text" th:required="required" class="form-control"
+								th:field="*{email}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Cell Phone:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" th:field="*{cellPhone}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Height:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" th:field="*{height}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Education:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" th:field="*{education}" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Profession:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" th:field="*{profession}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Religion:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" th:field="*{religion}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Address:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" th:field="*{address}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Description:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" th:field="*{description}" />
+						</div>
+					</div>
 
 					<div class="tabs">
-					
-					   <div class="tab">
-					       <input type="radio" id="tab-1" name="tab-group-1" checked>
-					       <label for="tab-1">References</label>
-					
-					       <div class="content">
-		          <div class="form-group">
-		            <table>
-		              <thead>
-		                <tr>
-		                  <th th:text="#{memberReference.head.rownum}">Row</th>
-		                  <th th:text="#{memberReference.head.firstName}">First Name</th>
-		                  <th th:text="#{memberReference.head.lastName}">Last Name</th>
-		                  <th th:text="#{memberReference.head.cellPhone}">CellPhone</th>
-		                  <th th:text="#{memberReference.head.email}">Email</th>
-		                  <th>
-		                    <button type="submit" name="addRowReference" th:text="#{memberReference.add}">Add row</button>
-		                  </th>
-		                </tr>
-		              </thead>
-		              <tbody>
-		                <tr th:each="row,rowStat : *{memberReference}">
-		                <td th:text="${rowStat.count}">1</td>
-		                 
-		                  <td>
-		                    <input type="hidden" th:field="*{memberReference[__${rowStat.index}__].idreference}"/>
-		                    <input type="text" th:required="required" th:field="*{memberReference[__${rowStat.index}__].firstName}" th:errorclass="fieldError" />
-		                  </td>
-		                  <td>
-		                    <input type="text" th:field="*{memberReference[__${rowStat.index}__].lastName}" th:errorclass="fieldError" />
-		                  </td>
-		                  <td>
-		                    <input type="text" th:field="*{memberReference[__${rowStat.index}__].cellPhone}" th:errorclass="fieldError" />
-		                  </td>
-		                  <td>
-		                    <input type="text" th:field="*{memberReference[__${rowStat.index}__].email}" th:errorclass="fieldError" />
-		                  </td>
-		                  <td>
-		                    <button type="submit" name="removeRowReference" th:value="${rowStat.index}" th:text="#{memberReference.remove}">Remove row</button>
-		                  </td>
-		                </tr>
-		              </tbody>
-		            </table>
-		          </div>
-					       </div> 
-					   </div>
-					
-					   <div class="tab">
-					       <input type="radio" id="tab-2" name="tab-group-1">
-					       <label for="tab-2">Tab Two</label>
-					
-					       <div class="content">
-					           stuff
-					       </div> 
-					   </div>
-					
+
+						<div class="tab">
+							<input type="radio" id="tab-1" name="tab-group-1" checked>
+							<label for="tab-1">References</label>
+
+							<div class="content">
+								<div class="form-group">
+									<table>
+										<thead>
+											<tr>
+												<th th:text="#{memberReference.head.rownum}">Row</th>
+												<th th:text="#{memberReference.head.firstName}">First
+													Name</th>
+												<th th:text="#{memberReference.head.lastName}">Last
+													Name</th>
+												<th th:text="#{memberReference.head.cellPhone}">CellPhone</th>
+												<th th:text="#{memberReference.head.email}">Email</th>
+												<th>
+													<button type="submit" name="addRowReference"
+														th:text="#{memberReference.add}">Add row</button>
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr th:each="row,rowStat : *{memberReference}">
+												<td th:text="${rowStat.count}">1</td>
+
+												<td><input type="hidden"
+													th:field="*{memberReference[__${rowStat.index}__].idreference}" />
+													<input type="text" th:required="required"
+													th:field="*{memberReference[__${rowStat.index}__].firstName}"
+													th:errorclass="fieldError" /></td>
+												<td><input type="text"
+													th:field="*{memberReference[__${rowStat.index}__].lastName}"
+													th:errorclass="fieldError" /></td>
+												<td><input type="text"
+													th:field="*{memberReference[__${rowStat.index}__].cellPhone}"
+													th:errorclass="fieldError" /></td>
+												<td><input type="text"
+													th:field="*{memberReference[__${rowStat.index}__].email}"
+													th:errorclass="fieldError" /></td>
+												<td>
+													<button type="submit" name="removeRowReference"
+														th:value="${rowStat.index}"
+														th:text="#{memberReference.remove}">Remove row</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+						<div class="tab">
+							<input type="radio" id="tab-2" name="tab-group-1"> <label
+								for="tab-2">Education</label>
+
+							<div class="content">
+								<div class="form-group">
+									<table>
+										<thead>
+											<tr>
+												<th th:text="#{memberEducation.head.rownum}">Row</th>
+												<th th:text="#{memberEducation.head.degree}">Degree</th>
+												<th th:text="#{memberEducation.head.collegeName}">College
+													Name</th>
+												<th th:text="#{memberEducation.head.city}">City</th>
+												<th th:text="#{memberEducation.head.state}">State</th>
+												<th th:text="#{memberEducation.head.country}">Country</th>
+												<th>
+													<button type="submit" name="addRowEducation"
+														th:text="#{memberEducation.add}">Add row</button>
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr th:each="row,rowStat : *{memberEducation}">
+												<td th:text="${rowStat.count}">1</td>
+
+												<td><input type="hidden"
+													th:field="*{memberEducation[__${rowStat.index}__].ideducation}" />
+													<input type="text" th:required="required"
+													th:field="*{memberEducation[__${rowStat.index}__].degree}"
+													th:errorclass="fieldError" /></td>
+												<td><input type="text"
+													th:field="*{memberEducation[__${rowStat.index}__].collegeName}"
+													th:errorclass="fieldError" /></td>
+												<td><input type="text"
+													th:field="*{memberEducation[__${rowStat.index}__].city}"
+													th:errorclass="fieldError" /></td>
+												<td><input type="text"
+													th:field="*{memberEducation[__${rowStat.index}__].state}"
+													th:errorclass="fieldError" /></td>
+												<td><input type="text"
+													th:field="*{memberEducation[__${rowStat.index}__].country}"
+													th:errorclass="fieldError" /></td>
+												<td>
+													<button type="submit" name="removeRowEducation"
+														th:value="${rowStat.index}"
+														th:text="#{memberEducation.remove}">Remove row</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+							<!-- 				
 					<div class="tab">
 					       <input type="radio" id="tab-3" name="tab-group-1">
 					       <label for="tab-3">Tab Three</label>
@@ -168,14 +233,16 @@
 					       </div> 
 					   </div>
 					</div>
+ -->
+						</div>
+					</div>
+					<div class="row">
+						<button type="submit" class="btn btn-default">Submit</button>
+					</div>
+				</fieldset>
+			</form>
+		</div>
 
-            <div class="row">
-                <button type="submit" class="btn btn-default">Submit</button>
-            </div>
-            </fieldset>
-        </form>
-    </div>
-
-</div>
+	</div>
 </body>
 </html>
